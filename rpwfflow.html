@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPWFFLOW - Jobs, Volunteering & Events</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Dark Mode Background */
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #222;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .menu li {
+            display: inline;
+        }
+
+        .navbar .menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .navbar .menu li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?teamwork,community') no-repeat center center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        /* Home Page Description */
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+            gap: 30px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .home-text {
+            flex: 1;
+        }
+
+        .home-text h2 {
+            color: #f9a825;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .home-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #ddd;
+        }
+
+        .home-image {
+            flex: 1;
+        }
+
+        .home-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Sections */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .section {
+            background: #222;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Signup Forms */
+        .signup-form {
+            margin-top: 15px;
+        }
+
+        .signup-form input, .signup-form button {
+            padding: 10px;
+            width: 100%;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .signup-form button {
+            background: #f9a825;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .contact-form button {
+            background: #f9a825;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">RPWFFLOW</div>
+        <ul class="menu">
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('jobSection')">Jobs</a></li>
+            <li><a href="#" onclick="showSection('volunteerSection')">Volunteer</a></li>
+            <li><a href="#" onclick="showSection('eventSection')">Events</a></li>
+            <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero section active" id="home">
+        <h1>Find Jobs, Volunteer Work & Events</h1>
+    </div>
+
+    <!-- Home Content -->
+    <div class="home-content" id="homeContent">
+        <div class="home-text">
+            <h2>Connect with Opportunities</h2>
+            <p>RPWFFLOW is your go-to platform for finding job openings, volunteering, and upcoming events.</p>
+        </div>
+        <div class="home-image">
+            <img src="https://source.unsplash.com/400x300/?teamwork,helping" alt="Community Helping">
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Events Section -->
+        <div class="section" id="eventSection">
+            <h2>📅 Upcoming Events</h2>
+            <p>Join exciting events in your area.</p>
+        </div>
+
+        <!-- Job Finder Section -->
+        <div class="section" id="jobSection">
+            <h2>💼 Job Finder</h2>
+            <form class="signup-form">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email">
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Volunteer Section -->
+        <div class="section" id="volunteerSection">
+            <h2>🤝 Volunteer Opportunities</h2>
+            <form class="signup-form">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email">
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Contact Section -->
+        <!-- Contact Section -->
+        <div style="background-color: black; color: white; padding: 20px; text-align: left; width: 300px; border-radius: 10px;">
+
+            <h2 style="margin-bottom: 15px;">📩 Contact Us</h2>
+        
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="24" height="24" alt="Phone">
+                <a href="tel:+1234567890" style="color: orange; text-decoration: none; font-size: 16px;">+1 234 567 890</a>
+            </div>
+        
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="24" height="24" alt="Email">
+                <a href="mailto:info@rpwfflow.com" style="color: orange; text-decoration: none; font-size: 16px;">info@rpwfflow.com</a>
+            </div>
+        
+            <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                <a href="https://www.instagram.com/rpwfindia?igsh=MTZpOGd4cXJiM21jag==" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" width="40" height="40" alt="Instagram">
+                </a>
+            </div>
+        
+        </div>
+        
+        
+
+   
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll(".section").forEach(section => section.classList.remove("active"));
+            document.getElementById(sectionId).classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
